@@ -9,7 +9,7 @@ public class CreateStartTable {
         Connection dbConnection = null;
         Statement stmt = null;
 
-        String createTable = "CREATE TABLE dbuser ("
+        String createTableSQL = "CREATE TABLE dbuser ("
                              + "id BIGSERIAL NOT NULL PRIMARY KEY, "
                              + "first_name VARCHAR(50) NOT NULL, "
                              + "last_name VARCHAR(50) NOT NULL, "
@@ -20,7 +20,7 @@ public class CreateStartTable {
         try {
             dbConnection = ConnectionDB.getDBConnection();
             stmt = dbConnection.createStatement();
-            stmt.execute(createTable);
+            stmt.execute(createTableSQL);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
