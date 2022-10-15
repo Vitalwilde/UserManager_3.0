@@ -15,32 +15,32 @@ public class UserService {
         this.userRepository = new UserRepository();                                                             //спросить для чего так делать
     }
 
-    public void firstUserChoice() {
-        String menuChoice = scanner.nextLine().toLowerCase();
-        switch (menuChoice) {
-            case ("add") -> UserRepository.saveUser();
-//            case ("find") -> findUser();
-//            case ("del") -> delUser();
-           // case ("upd") -> updateUser();
-            case ("help") -> InterfaceMessages.mainMenu();
-            default -> {
-                System.out.println("Введите правильный запрос (help - для вызова справки)");
-                firstUserChoice();
-            }
-        }
-    }
-
-    private void addUser() {
-        User user = new User();
-        user.setUserFirstName(enterFirstName());
-        user.setUserLastName(enterLastName());
-        user.setUserGender(enterGender());
-        user.setUserAge(enterAge());
-        user.setUserPsychotype(enterPsycho());
-        userRepository.saveUser();
-        InterfaceMessages.userSaved();
-        continueMessage();
-    }
+//    public void firstUserChoice() {
+//        String menuChoice = scanner.nextLine().toLowerCase();
+//        switch (menuChoice) {
+//            case ("add") -> UserRepository.saveUser();
+////            case ("find") -> findUser();
+////            case ("del") -> delUser();
+//           // case ("upd") -> updateUser();
+//            case ("help") -> InterfaceMessages.mainMenu();
+//            default -> {
+//                System.out.println("Введите правильный запрос (help - для вызова справки)");
+//                firstUserChoice();
+//            }
+//        }
+//    }
+//
+//    private void addUser() {
+//        User user = new User();
+//        user.setUserFirstName(enterFirstName());
+//        user.setUserLastName(enterLastName());
+//        user.setUserGender(enterGender());
+//        user.setUserAge(enterAge());
+//        user.setUserPsychotype(enterPsycho());
+//        userRepository.saveUser();
+//        InterfaceMessages.userSaved();
+//        continueMessage();
+//    }
 
 //    public void findUser() {
 //        InterfaceMessages.userFindChoice();
@@ -261,16 +261,16 @@ public class UserService {
 //        continueMessage();
 //    }
 
-    public void continueMessage() {
-        System.out.println(InterfaceMessages.ANSI_YELLOW + "Что бы продолжить нажмите Enter" + InterfaceMessages.ANSI_RESET);
-        String userChoiceContinue = UserService.scanner.nextLine();
-        if (userChoiceContinue.equals("")) {
-            InterfaceMessages.mainMenu();
-            firstUserChoice();
-        } else {
-            continueMessage();
-        }
-    }
+//    public void continueMessage() {
+//        System.out.println(InterfaceMessages.ANSI_YELLOW + "Что бы продолжить нажмите Enter" + InterfaceMessages.ANSI_RESET);
+//        String userChoiceContinue = UserService.scanner.nextLine();
+//        if (userChoiceContinue.equals("")) {
+//            InterfaceMessages.mainMenu();
+//            firstUserChoice();
+//        } else {
+//            continueMessage();
+//        }
+//    }
 }
 
 
