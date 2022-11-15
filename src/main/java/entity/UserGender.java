@@ -1,8 +1,8 @@
 package entity;
 
 public enum UserGender {
-    MALE("Мужчина"),
-    FEMALE("Женищина");
+    MALE("Male"),
+    FEMALE("Female");
 
     private final String gender;
     UserGender(String gender) {

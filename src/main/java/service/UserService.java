@@ -5,6 +5,8 @@ import entity.UserGender;
 import entity.UserProfiling;
 import repository.UserRepository;
 
+import java.sql.SQLException;
+import java.util.Date;
 import java.util.Scanner;
 
 public class UserService {
@@ -15,32 +17,32 @@ public class UserService {
         this.userRepository = new UserRepository();                                                             //спросить для чего так делать
     }
 
-//    public void firstUserChoice() {
-//        String menuChoice = scanner.nextLine().toLowerCase();
-//        switch (menuChoice) {
-//            case ("add") -> UserRepository.saveUser();
-////            case ("find") -> findUser();
-////            case ("del") -> delUser();
-//           // case ("upd") -> updateUser();
-//            case ("help") -> InterfaceMessages.mainMenu();
-//            default -> {
-//                System.out.println("Введите правильный запрос (help - для вызова справки)");
-//                firstUserChoice();
-//            }
-//        }
-//    }
-//
-//    private void addUser() {
-//        User user = new User();
-//        user.setUserFirstName(enterFirstName());
-//        user.setUserLastName(enterLastName());
-//        user.setUserGender(enterGender());
-//        user.setUserAge(enterAge());
-//        user.setUserPsychotype(enterPsycho());
-//        userRepository.saveUser();
-//        InterfaceMessages.userSaved();
-//        continueMessage();
-//    }
+    public void firstUserChoice() throws SQLException {
+        String menuChoice = scanner.nextLine().toLowerCase();
+        switch (menuChoice) {
+            case ("add") -> addUser();
+ //           case ("find") -> findUser();
+ //           case ("del") -> delUser();
+  //          case ("upd") -> updateUser();
+            case ("help") -> InterfaceMessages.mainMenu();
+            default -> {
+                System.out.println("Введите правильный запрос (help - для вызова справки)");
+                firstUserChoice();
+            }
+        }
+    }
+
+    private void addUser() throws SQLException {
+        User user = new User();
+        user.setUserFirstName(enterFirstName());
+        user.setUserLastName(enterLastName());
+        user.setUserGender(enterGender());
+        user.setUserAge(enterAge());
+        user.setUserPsychotype(enterPsycho());
+        UserRepository.saveUser(user);
+        InterfaceMessages.userSaved();
+        continueMessage();
+    }
 
 //    public void findUser() {
 //        InterfaceMessages.userFindChoice();
@@ -61,7 +63,7 @@ public class UserService {
 //            }
 //        }
 //    }
-
+//
 //    public void delUser() {
 //        InterfaceMessages.userDelChoice();
 //        String findUserChoice = scanner.nextLine();
@@ -79,7 +81,7 @@ public class UserService {
 //            }
 //        }
 //    }
-
+//
 //    public void updateUser() {
 //        InterfaceMessages.userUpdateChoice();
 //        String findUserChoice = scanner.nextLine();
@@ -129,7 +131,7 @@ public class UserService {
     }
 
     private String enterGender() {
-        System.out.println("Введите пол - M / Ж");
+        System.out.println("Enter gender - m/f");
         return checkUserGender();
 
     }
@@ -139,14 +141,14 @@ public class UserService {
         UserGender maleGender = UserGender.MALE;
         UserGender femaleGender = UserGender.FEMALE;
         switch (scanGender) {
-            case ("м") -> {
+            case ("m") -> {
                 return maleGender.getGender();
             }
-            case ("ж") -> {
+            case ("f") -> {
                 return femaleGender.getGender();
             }
             default -> {
-                System.out.println("Введите корректный пол");
+                System.out.println("Enter correct gender");
                 return checkUserGender();
 
             }
@@ -155,7 +157,7 @@ public class UserService {
 
     private Integer enterAge() {
 
-        System.out.println("Введите возраст");
+        System.out.println("Enter age");
         return checkUserAge();
     }
 
@@ -196,7 +198,7 @@ public class UserService {
             case ("параноиальный") -> {
                 return paranoid.getPsychotype();
             }
-            case ("эмотивный") -> {
+            case ("emotive") -> {
                 return emotive.getPsychotype();
             }
             case ("шизоид") -> {
@@ -261,16 +263,16 @@ public class UserService {
 //        continueMessage();
 //    }
 
-//    public void continueMessage() {
-//        System.out.println(InterfaceMessages.ANSI_YELLOW + "Что бы продолжить нажмите Enter" + InterfaceMessages.ANSI_RESET);
-//        String userChoiceContinue = UserService.scanner.nextLine();
-//        if (userChoiceContinue.equals("")) {
-//            InterfaceMessages.mainMenu();
-//            firstUserChoice();
-//        } else {
-//            continueMessage();
-//        }
-//    }
+    public void continueMessage() throws SQLException {
+        System.out.println(InterfaceMessages.ANSI_YELLOW + "Что бы продолжить нажмите Enter" + InterfaceMessages.ANSI_RESET);
+        String userChoiceContinue = UserService.scanner.nextLine();
+        if (userChoiceContinue.equals("")) {
+            InterfaceMessages.mainMenu();
+            firstUserChoice();
+        } else {
+            continueMessage();
+        }
+    }
 }
 
 

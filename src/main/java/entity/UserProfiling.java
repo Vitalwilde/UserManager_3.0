@@ -1,12 +1,12 @@
 package entity;
 
 public enum UserProfiling {
-    ISTEROID("Истероид"),
-    EPILEPTOID("Эпилептоид"),
-    PARANOID("Паранойальный"),
-    EMOTIVE("Эмотивный"),
-    SHIZOID("Шизоид"),
-    HYPERTIM("Гипертим");
+    ISTEROID("Isteroid"),
+    EPILEPTOID("Epileptoid"),
+    PARANOID("Paranoid"),
+    EMOTIVE("Emotive"),
+    SHIZOID("Shizoid"),
+    HYPERTIM("Hypertim");
 
     private final String psychotype;
 

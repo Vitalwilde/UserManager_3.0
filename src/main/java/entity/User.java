@@ -71,10 +71,10 @@ public class User {
     @Override
     public String toString() {
         return "ID: " + this.id +
-               "\nИмя: " + this.userFirstName +
-               "\nФамилия: " + this.userLastName +
-               "\nПол: " + this.userGender +
-               "\nВозраст: " + this.userAge +
-               "\nПсихотип: " + this.userPsychotype;
+               "\nFirst name: " + this.userFirstName +
+               "\nLast name: " + this.userLastName +
+               "\nGender: " + this.userGender +
+               "\nAge: " + this.userAge +
+               "\nPsychotype: " + this.userPsychotype;
     }
 }
