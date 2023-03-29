@@ -6,11 +6,11 @@ import java.sql.DriverManager;
 
 public class ConnectionDB {
     public static Connection getDBConnection(){
-        Connection dbConnectoin = null;
+        Connection dbConnection = null;
 
         try {
             Class.forName("org.postgresql.Driver");
-            dbConnectoin = DriverManager
+            dbConnection = DriverManager
                     .getConnection("jdbc:postgresql://localhost:5432/usermanager",
                             "postgres", "total7749");
         } catch (Exception e) {
@@ -18,7 +18,7 @@ public class ConnectionDB {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         }
-        return dbConnectoin;
+        return dbConnection;
     }
 }
 
